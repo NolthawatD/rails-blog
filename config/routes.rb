@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifestv
 
-
-  get "blog_posts/new", to: "blog_posts#new", as: :new_blog_post
-  get "blog_posts/:id", to: "blog_posts#show", as: :blog_post
-  patch "blog_posts/:id", to: "blog_posts#update"
-  get "blog_posts/:id/edit", to: "blog_posts#edit", as: :edit_blog_post
-  post "blog_posts", to: "blog_posts#create", as: :blog_posts
-  # Defines the root path route ("/")
+  resources :blog_posts #shortcut for 6 routes
+  # get "blog_posts/new", to: "blog_posts#new", as: :new_blog_post
+  # get "blog_posts/:id", to: "blog_posts#show", as: :blog_post
+  # patch "blog_posts/:id", to: "blog_posts#update"
+  # delete "blog_posts/:id", to: "blog_posts#destroy"
+  # get "blog_posts/:id/edit", to: "blog_posts#edit", as: :edit_blog_post
+  # post "blog_posts", to: "blog_posts#create", as: :blog_posts
+  # # Defines the root path route ("/")
   root "blog_posts#index"
 
 end
