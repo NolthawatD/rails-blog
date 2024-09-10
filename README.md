@@ -102,6 +102,7 @@ rails g
 ```bash
 ./bin/bundle bundle add devise
 rails g devise:install
+rails g devise:views
 ```
 
 set default confing URL option
