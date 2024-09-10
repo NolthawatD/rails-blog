@@ -19,27 +19,19 @@
   </head>
 
   <body class="prose mx-auto">
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 px-5 flex-col">
 
 		  <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
 			<div>
 				<% if user_signed_in? %>
-				<%= link_to "New blog post", new_blog_post_path %>
-					<%
-=begin%>
- <%= link_to "Profile", edit_user_registration_path %> 
-<%
-=end%>
+					<%#= link_to "New blog post", new_blog_post_path %>
+					<%= link_to "Profile", edit_user_registration_path %> 
 					<%= button_to "Log out", destroy_user_session_path, method: :delete %>
-				<%
-=begin%>
- <% else %>
-					<%= link_to "Login", new_user_session_path %>
-					<%= link_to "Sign Up", new_user_registration_path %> 
-<%
-=end%>
+				 <%# else %>
+					<%#= link_to "Login", new_user_session_path %>
+					<%#= link_to "Sign Up", new_user_registration_path %> 
 				<% end %>
 			</div>
 
