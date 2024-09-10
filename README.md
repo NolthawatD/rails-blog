@@ -75,13 +75,13 @@ blog_posts_controller.rb
 blog_posts
 ```
 
-create file
+-   create file
 
 ```ruby
 index.html.erb
 ```
 
-new variables for instance and share to erb template
+-   new variables for instance and share to erb template
 
 ```ruby
   def index
@@ -105,13 +105,13 @@ rails g devise:install
 rails g devise:views
 ```
 
-set default confing URL option
+-   set default confing URL option
 
 ```ruby
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ```
 
-create a model name User
+-   create a model name User
 
 > have a new routes "devise_for :users"
 > have a new models "user"
@@ -122,7 +122,7 @@ rails g devise User
 rails db:migrate
 ```
 
-seed data
+-   seed data
 
 ```ruby
 user = User.where(email: "nolthawat.d@gmail.com").first_or_initialize
@@ -131,11 +131,10 @@ user.update!(
   password_confirmation: "password"
 )
 ```
+
 ```bash
 rails db:seed
 ```
-
-
 
 -   tailwind-css
 
