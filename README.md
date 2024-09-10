@@ -77,3 +77,15 @@ new variables for instance and share to erb template
     @blog_posts = BlogPost.all
   end
 ```
+
+## Install packages
+* tailwind-css
+```bash
+./bin/bundle add tailwindcss-rails
+./bin/rails tailwindcss:install
+```
+
+* run watch develop
+```bash
+bin/dev
+```
