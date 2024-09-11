@@ -48,9 +48,33 @@ rails console
 .find(<id>)
 instance = model.find(<id>)
 instance.destroy
-
-
 ```
+
+-   Change db to persistance Postgres
+
+```bash
+rails db:system:change --to=postgresql
+bundle
+```
+
+-   if not work install bundle
+
+```bash
+brew install libpq
+brew link --force libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH > ~/.zshrc
+gem install pg -- --with-pg-config=/usr/local/opt/libpq/bin/pg_config
+or
+gem install pg -- --with-pg-config=/opt/homebrew/opt/libpq/bin/pg_config
+bundle
+```
+
+- config database at config/database.yml
+- run migrate 
+```bash
+rails db:migrate
+```
+
 
 ## Manage Route and Controllers
 
@@ -147,4 +171,32 @@ rails db:seed
 
 ```bash
 bin/dev
+```
+
+## Deployment to Render
+
+https://dashboard.render.com/
+
+-   build lock file os
+
+```bash
+bundle lock --add-platform x86_64-linux
+```
+
+-   check can generate credential
+
+```bash
+bin/rails credentials:edit
+```
+
+-   create a master key
+
+```bash
+cat config/master.key
+```
+
+-   add on command run manage database
+
+```bash
+bundle exec rails db:migrate; bundle exec rails db:seed
 ```
