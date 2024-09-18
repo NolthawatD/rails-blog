@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  rails-app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - RAILS_MASTER_KEY=8ea2e891701c7a1d74c99d59f4bd8db2

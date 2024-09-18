@@ -22,37 +22,48 @@ default: &default
 
 development:
   <<: *default
-  database: blog
-  # The specified database role being used to connect to PostgreSQL.
-  # To create additional roles in PostgreSQL see `$ createuser --help`.
-  # When left blank, PostgreSQL will use the default role. This is
-  # the same name as the operating system user running Rails.
-  username: root
+  # database: blog
+#   # The specified database role being used to connect to PostgreSQL.
+#   # To create additional roles in PostgreSQL see `$ createuser --help`.
+#   # When left blank, PostgreSQL will use the default role. This is
+#   # the same name as the operating system user running Rails.
+#   username: root
 
-  # The password associated with the PostgreSQL role (username).
-  password: secret
+#   # The password associated with the PostgreSQL role (username).
+#   password: secret
 
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
-  host: localhost
+#   # Connect on a TCP socket. Omitted by default since the client uses a
+#   # domain socket that doesn't need configuration. Windows does not have
+#   # domain sockets, so uncomment these lines.
+#   host: localhost
 
-  # The TCP port the server listens on. Defaults to 5432.
-  # If your server runs on a different port number, change accordingly.
-  port: 5437
+#   # The TCP port the server listens on. Defaults to 5432.
+#   # If your server runs on a different port number, change accordingly.
+#   port: 5437
 
-  # Schema search path. The server defaults to $user,public
-  #schema_search_path: myapp,sharedapp,public
+#   # Schema search path. The server defaults to $user,public
+#   #schema_search_path: myapp,sharedapp,public
 
-  # Minimum log levels, in increasing order:
-  #   debug5, debug4, debug3, debug2, debug1,
-  #   log, notice, warning, error, fatal, and panic
-  # Defaults to warning.
-  #min_messages: notice
+#   # Minimum log levels, in increasing order:
+#   #   debug5, debug4, debug3, debug2, debug1,
+#   #   log, notice, warning, error, fatal, and panic
+#   # Defaults to warning.
+#   #min_messages: notice
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 143.198.199.30
+  port: 5432
+  database: mydb
+  username: myuser
+  password: mypassword
+
+
 test:
   <<: *default
   database: rails_blog_test
@@ -79,6 +90,11 @@ test:
 #
 production:
   <<: *default
-  database: rails_blog_production
-  username: rails_blog
-  password: <%= ENV["RAILS_BLOG_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 143.198.199.30
+  port: 5432
+  database: mydb
+  username: myuser
+  password: mypassword
